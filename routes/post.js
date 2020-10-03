@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.post('/post', function (req, res, next) {
+router.post('/', function (req, res, next) {
   console.log('첫 번째 미들웨어 호출 됨');
   var approve = { 'admin1': 0, 'admin2': 0, 'admin3': 0 };
 
