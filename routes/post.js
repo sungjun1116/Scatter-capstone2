@@ -3,8 +3,6 @@ var router = express.Router();
 var approve = { 'admin1': 0, 'admin2': 0, 'admin3': 0 };
 
 router.post('/', function (req, res, next) {
-  console.log('첫 번째 미들웨어 호출 됨');
-
   var paramId = req.body.item;
   console.log(`id : ${paramId}`);
 
@@ -21,5 +19,7 @@ router.post('/', function (req, res, next) {
   } else console.log('일치하는 아이디가 없습니다!');
   res.send(approve);
 });
+
+exports.approve = approve;
 
 module.exports = router;  
