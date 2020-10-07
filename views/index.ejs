@@ -9,6 +9,7 @@
   <title>카페맵</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9qtiw7bttk"></script>
+  <script src="../lib/jquery-3.5.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </head>
@@ -31,13 +32,9 @@
       center: new naver.maps.LatLng(37.321739, 127.126717),
       zoom: 16
     };
-
     var map = new naver.maps.Map('map', mapOptions);
-
     var markerList = [];
     var infowindowList = [];
-
-
     for (let i in data) {
       let target = data[i];
       let latlng = new naver.maps.LatLng(target.lat, target.lng);
@@ -49,38 +46,30 @@
           anchor: new naver.maps.Point(12, 12)
         }
       });
-
-
       var content = `<div class='infowindow_wrap'>
           <div class='infowindow_title'>${target.title}</div>
           <div class='infowindow_content'>${target.content}</div>
           <div class='infowindow_date'><%= title %></div>
         </div>`
-
       var infowindow = new naver.maps.InfoWindow({
         content: content,
         backgroundColor: "#00ff0000",
         borderColor: "#00ff0000",
         anchorSize: new naver.maps.Size(0, 0),
       })
-
       markerList.push(marker);
       infowindowList.push(infowindow);
     }
-
     for (var i = 0, ii = markerList.length; i < ii; i++) {
       naver.maps.Event.addListener(map, "click", ClickMap(i));
       naver.maps.Event.addListener(markerList[i], "click", getClickHandler(i));
     }
-
-
     function ClickMap(i) {
       return function () {
         var infowindow = infowindowList[i];
         infowindow.close()
       }
     }
-
     function getClickHandler(i) {
       return function () {
         var marker = markerList[i];
@@ -92,9 +81,7 @@
         }
       }
     }
-
     let currentUse = true;
-
     $("#current").click(() => {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -114,13 +101,11 @@
           }
           map.setZoom(14, false);
           map.panTo(latlng);
-
         });
       } else {
         alert("위치정보 사용 불가능");
       }
     });
-
   </script>
 
 </body>
