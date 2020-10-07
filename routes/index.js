@@ -6,8 +6,7 @@ var app = express();
 app.set('view engine', 'ejs');
 
 
-
-router.post('/', function (req, res, next) {
+router.post('/index', function (req, res, next) {
   var paramId = req.body.item;
   console.log(`id : ${paramId}`);
 
