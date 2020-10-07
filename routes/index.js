@@ -5,7 +5,7 @@ var app = express();
 
 app.set('view engine', 'ejs');
 
-var tit = count.admin1;
+var tit = count;
 router.get('/', function (req, res, next) {
   res.render('index', { title: tit });
 });

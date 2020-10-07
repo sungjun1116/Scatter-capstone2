@@ -10,16 +10,19 @@ router.post('/', function (req, res, next) {
   if (paramId === 'admin1') {
     count.admin1 += 1;
     console.log(count.admin1);
+    // global.count = count.admin1;
   } else if (paramId === 'admin2') {
     count.admin2 += 1;
     console.log(count.admin2);
+    // global.count = count.admin2;
   } else if (paramId === 'admin3') {
     count.admin3 += 1;
     console.log(count.admin3);
+    // global.count = count.admin3;
   } else console.log('일치하는 아이디가 없습니다!');
   res.send(count);
 });
 
-global.count = count;
+global.count = count.admin1;
 
 module.exports = router;
