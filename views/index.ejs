@@ -25,7 +25,7 @@
   <div id="map" style="width:100%;height:100vh;"></div>
 
   <script type="text/javascript" src="/data/data.js"></script>
-  <script type="text/javascript" src="/routes/post.js"></script>
+  <!-- <script type="text/javascript" src="'../../routes/post.js');"></script> -->
   <script>
     var mapOptions = {
       center: new naver.maps.LatLng(37.321739, 127.126717),
@@ -40,7 +40,6 @@
 
     for (let i in data) {
       let target = data[i];
-
       let latlng = new naver.maps.LatLng(target.lat, target.lng);
       marker = new naver.maps.Marker({
         map: map,
@@ -50,6 +49,7 @@
           anchor: new naver.maps.Point(12, 12)
         }
       });
+
 
       var content = `<div class='infowindow_wrap'>
           <div class='infowindow_title'>${target.title}</div>

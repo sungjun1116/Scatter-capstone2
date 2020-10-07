@@ -20,4 +20,6 @@ router.post('/', function (req, res, next) {
   res.send(approve);
 });
 
+global.count = approve;
+
 module.exports = router;

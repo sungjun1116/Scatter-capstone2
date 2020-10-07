@@ -22,10 +22,9 @@ var data = [
   {
     title: "용인",
     content: "단국대학교",
-    date: "dfd",
+    date: "dfadfads",
     lat: 37.321624,
     lng: 127.126761
   }
 ]
 
-console.log(approve);
