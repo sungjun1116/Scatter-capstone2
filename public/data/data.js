@@ -1,4 +1,3 @@
-const approve = require('../routes/post');
 var data = [
   {
     title: "서울",
@@ -23,9 +22,10 @@ var data = [
   {
     title: "용인",
     content: "단국대학교",
-    date: "2020-08-06",
+    date: "dfd",
     lat: 37.321624,
-    lng: 127.126761,
-    count: `${approve.admin1}`
+    lng: 127.126761
   }
 ]
+
+console.log(approve);

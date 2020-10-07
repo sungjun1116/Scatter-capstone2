@@ -19,12 +19,13 @@
     <div id="infoTitle">현재날짜</div>
     <div id="infoContent">2020.08.06</div>
   </div>
-  <div id="current">현재위치</div>
+  <!-- <div id="current">현재위치</div> -->
 
 
   <div id="map" style="width:100%;height:100vh;"></div>
 
   <script type="text/javascript" src="/data/data.js"></script>
+  <script type="text/javascript" src="/routes/post.js"></script>
   <script>
     var mapOptions = {
       center: new naver.maps.LatLng(37.321739, 127.126717),
@@ -36,8 +37,10 @@
     var markerList = [];
     var infowindowList = [];
 
+
     for (let i in data) {
       let target = data[i];
+
       let latlng = new naver.maps.LatLng(target.lat, target.lng);
       marker = new naver.maps.Marker({
         map: map,
@@ -52,7 +55,6 @@
           <div class='infowindow_title'>${target.title}</div>
           <div class='infowindow_content'>${target.content}</div>
           <div class='infowindow_date'>${target.date}</div>
-          <div class='infowindow_count'>${target.count}</div>
         </div>`
 
       var infowindow = new naver.maps.InfoWindow({

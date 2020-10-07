@@ -20,6 +20,4 @@ router.post('/', function (req, res, next) {
   res.send(approve);
 });
 
-exports.approve = approve;
-
-module.exports = router;  
+module.exports = router;
