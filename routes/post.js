@@ -21,7 +21,7 @@ router.post('/', function (req, res, next) {
   } else {
     description = 1000;
   }
-  fs.writeFile(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
+  fs.writeFileSync(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
     if (err) {
       console.log(err);
       res.status(500).send('writeFile 실패');
