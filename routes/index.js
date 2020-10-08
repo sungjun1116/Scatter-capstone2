@@ -5,10 +5,10 @@ var app = express();
 
 app.set('view engine', 'ejs');
 
-console.log(count);
-var tit = 3;
+console.log('index로 잘 들어왔당께 :', count);
 router.get('/', function (req, res, next) {
-  res.render('index', { title: tit });
+  var myVar = 3;
+  res.render('index', { myVar: myVar });
 });
 
 

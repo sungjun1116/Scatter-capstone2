@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <h1><%= title %></h1>
+  <h1><%= myVar %></h1>
   <!-- <div id="navbar">카페맵</div> -->
   <div id="infoBox">
     <div id="infoTitle">현재날짜</div>
@@ -49,7 +49,7 @@
       var content = `<div class='infowindow_wrap'>
           <div class='infowindow_title'>${target.title}</div>
           <div class='infowindow_content'>${target.content}</div>
-          <div class='infowindow_date'><%= title %></div>
+          <div class='infowindow_date'><%= myVar %></div>
         </div>`
       var infowindow = new naver.maps.InfoWindow({
         content: content,
