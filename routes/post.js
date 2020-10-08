@@ -21,7 +21,12 @@ router.post('/', function (req, res, next) {
     description = 1000;
   }
   fs.writeFile(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
-    res.send(description)
+    if (err) {
+      console.log(err);
+      res.status(500).send('writeFile 실패');
+    }
+    console.log(description);
+    res.send('')
   });
 });
 
