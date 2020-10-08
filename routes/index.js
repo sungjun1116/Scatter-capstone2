@@ -4,7 +4,7 @@ require('./post.js');
 var app = express();
 
 app.set('view engine', 'ejs');
-// console.log(count);
+console.log(count);
 
 router.get('/', function (req, res, next) {
   var myVar = count;
