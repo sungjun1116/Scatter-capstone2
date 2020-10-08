@@ -3,27 +3,25 @@ var router = express.Router();
 var fs = require('fs');
 
 
-var count = { 'admin1': 0, 'admin2': 0, 'admin3': 0 };
+var approve = { 'admin1': 0, 'admin2': 0, 'admin3': 0 };
 
 
 router.post('/', function (req, res, next) {
-  var getInfo = req.body.item;
-  console.log(`id : ${getInfo}`);
-  if (getInfo === 'admin1') {
-    count.admin1 += 1;
-    let description = 1;
-    console.log(count.admin1);
-  } else if (getInfo === 'admin2') {
-    count.admin2 += 1;
-    description = `var admin1 = ${count.admin2}`;
-    console.log(description);
-  } else if (getInfo === 'admin3') {
-    count.admin3 += 1;
-    description = `var admin1 = ${count.admin3}`;
-    console.log(description);
-  } else {
-    description = 1000;
-  }
+  var paramId = req.body.item;
+  console.log(`id : ${paramId}`);
+
+  //아이디 일치여부 flag json 데이터입니다.
+  if (paramId === 'admin1') {
+    approve.admin1 += 1;
+    console.log(approve.admin1);
+  } else if (paramId === 'admin2') {
+    approve.admin2 += 1;
+    console.log(approve.admin2);
+  } else if (paramId === 'admin3') {
+    approve.admin3 += 1;
+    console.log(aprove.admin3);
+  } else console.log('일치하는 아이디가 없습니다!');
+
   fs.writeFileSync(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
     if (err === null) {
       console.log('success');
