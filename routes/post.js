@@ -8,11 +8,10 @@ var count = { 'admin1': 0, 'admin2': 0, 'admin3': 0 };
 
 router.post('/', function (req, res, next) {
   let getInfo = req.body.item;
-  let description = ``;
   console.log(`id : ${getInfo}`);
   if (getInfo === 'admin1') {
     count.admin1 += 1;
-    description = 1;
+    let description = 1;
     console.log(description);
   } else if (getInfo === 'admin2') {
     count.admin2 += 1;
