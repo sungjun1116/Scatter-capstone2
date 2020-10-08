@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
   } else {
     description = 1000;
   }
-  fs.writeFile(`../piblic/data/${getInfo} `, description, 'utf8', function (err) {
+  fs.writeFile(`../piblic/data/${getInfo}.js`, description, 'utf8', function (err) {
     res.send(description)
   });
 });
