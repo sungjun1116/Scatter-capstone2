@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
   if (getInfo === 'admin1') {
     count.admin1 += 1;
     let description = 1;
-    console.log(description);
+    console.log(count.admin1);
   } else if (getInfo === 'admin2') {
     count.admin2 += 1;
     description = `var admin1 = ${count.admin2}`;
