@@ -22,7 +22,7 @@ router.post('/', function (req, res, next) {
   } else console.log('일치하는 아이디가 없습니다!');
 
 
-  fs.writeFileSync(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
+  fs.writeFile(`../public/data/${approve}.js`, description, 'utf8', function (err) {
     if (err === null) {
       console.log('success');
     }
