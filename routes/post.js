@@ -23,5 +23,5 @@ router.post('/', function (req, res, next) {
 });
 console.log(count.admin1);
 
-
+global.count = count.admin1;
 module.exports = router;
