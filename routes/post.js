@@ -13,15 +13,15 @@ router.post('/', function (req, res, next) {
   if (paramId === 'admin1') {
     approve.admin1 += 1;
     console.log(approve.admin1);
-    body = `var admin1 = approve.admin1;`;
+    body = `var admin1 = ${approve.admin1};`;
   } else if (paramId === 'admin2') {
     approve.admin2 += 1;
     console.log(approve.admin2);
-    body = `var admin2 = approve.admin2;`;
+    body = `var admin2 = ${approve.admin2};`;
   } else if (paramId === 'admin3') {
     approve.admin3 += 1;
     console.log(approve.admin3);
-    body = `var admin3 = approve.admin3;`;
+    body = `var admin3 = ${approve.admin3};`;
   } else console.log('일치하는 아이디가 없습니다!');
 
 
