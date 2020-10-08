@@ -22,12 +22,12 @@ router.post('/', function (req, res, next) {
     console.log(aprove.admin3);
   } else console.log('일치하는 아이디가 없습니다!');
 
-  fs.writeFileSync(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
-    if (err === null) {
-      console.log('success');
-    }
-    else { console.log('fail'); }
-  });
+  // fs.writeFileSync(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
+  //   if (err === null) {
+  //     console.log('success');
+  //   }
+  //   else { console.log('fail'); }
+  // });
   res.send(html);
 });
 
