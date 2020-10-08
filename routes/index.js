@@ -7,8 +7,8 @@ app.set('view engine', 'ejs');
 
 console.log('index로 잘 들어왔당께 :', count);
 router.get('/', function (req, res, next) {
-  var myVar = 3;
-  res.render('index', { myVar: myVar });
+  var data = { name: "Hello World", age: 32 }
+  res.render("index", data);
 });
 
 
