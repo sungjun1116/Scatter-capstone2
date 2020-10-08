@@ -10,8 +10,6 @@ router.post('/', function (req, res, next) {
   var paramId = req.body.item;
   var description;
   console.log(`id : ${paramId}`);
-
-  //아이디 일치여부 flag json 데이터입니다.
   if (paramId === 'admin1') {
     approve.admin1 += 1;
     console.log(approve.admin1);
@@ -28,6 +26,7 @@ router.post('/', function (req, res, next) {
     description = `var admin3 = approve.admin3;`;
     console.log(description);
   } else console.log('일치하는 아이디가 없습니다!');
+  console.log('뭐야이거');
 
   // fs.writeFileSync(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
   //   if (err === null) {
