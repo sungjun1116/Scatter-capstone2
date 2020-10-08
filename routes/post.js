@@ -12,23 +12,26 @@ router.post('/', function (req, res, next) {
   if (getInfo === 'admin1') {
     count.admin1 += 1;
     description = `var admin1 = ${count.admin1}`;
+    console.log(description);
   } else if (getInfo === 'admin2') {
     count.admin2 += 1;
     description = `var admin1 = ${count.admin2}`;
+    console.log(description);
   } else if (getInfo === 'admin3') {
     count.admin3 += 1;
     description = `var admin1 = ${count.admin3}`;
+    console.log(description);
   } else {
     description = 1000;
   }
   fs.writeFileSync(`../public/data/${getInfo}.js`, description, 'utf8', function (err) {
-    if (err) {
-      console.log(err);
-      res.status(500).send('writeFile 실패');
+    if (err === null) {
+      console.log('success');
     }
-    console.log(description);
-    res.send('')
+    else { console.log('fail'); }
   });
+  res.send(html);
 });
+
 
 module.exports = router;
