@@ -1,1 +1,1 @@
-var admin2 = 0;
+var ediya = 0;

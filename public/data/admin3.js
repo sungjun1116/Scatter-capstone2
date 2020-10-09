@@ -1,1 +1,1 @@
-var admin3 = 0;
+var azit = 0;
