@@ -38,11 +38,11 @@
     for (let i in data) {
       let target = data[i];
       if (target.name === "스타벅스") {
-        count = admin1;
+        count = starbuks;
       } else if (target.name === "이디야 커피") {
-        count = admin2;
+        count = ediya;
       } else {
-        count = admin3;
+        count = azit;
       }
       let latlng = new naver.maps.LatLng(target.lat, target.lng);
       marker = new naver.maps.Marker({
