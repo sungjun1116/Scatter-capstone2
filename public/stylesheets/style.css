@@ -3,21 +3,9 @@ body {
   margin:0px !important;
 }   
 
-#navbar {
-  height: 50px;
-  width: 100%;
-  background: #262626;
-  color: white;
-  font-weight: bolder;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #infoBox {
   position: absolute;
-  top:100px;
+  top:50px;
   z-index:10000;
   background-color: white;
   left: 20px;
@@ -36,8 +24,8 @@ body {
   border: 1px solid black;
   background: green;
   opacity: 0.8;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
 }
 
@@ -47,19 +35,13 @@ body {
   border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.infowindow_title {
+.infowindow_name {
   font-size: 15px;
   font-weight: bolder;
 }
 
- 
-.infowindow_content{
-  font-size: 13px;
-  font-weight: normal;
-}
 
-
-.infowindow_date {
+.infowindow_count {
   font-size: 13px;
   font-weight: normal;
 }

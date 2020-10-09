@@ -1,1 +1,1 @@
-var admin1 = 10;
+var admin1 = 0;
