@@ -1,2 +1,2 @@
-var lat = 0;
-var lng = 0;
+var lat2 = 0;
+var lng2 = 0;

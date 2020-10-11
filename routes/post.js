@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
     console.log(lat);
     console.log(lng);
   }
-  let description = `var lat = ${lat}; var lng = ${lng}`;
+  let description = `var lat2 = ${lat}; var lng2 = ${lng}`;
   let body;
   let target;
   console.log(`id : ${paramId}`);
