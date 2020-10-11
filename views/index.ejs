@@ -94,6 +94,7 @@
 
     $("#current").on("click", function (e) {
       const current_lat = parseFloat(x);
+      alert(x);
       const current_lng = parseFloat(y);
       const gps = new naver.maps.LatLng(current_lat, current_lng);
       map.setZoom(15, false);

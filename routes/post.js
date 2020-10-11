@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
     console.log(lat);
     console.log(lng);
   }
-  let description = `var new_lat = ${lat}; var new_lng = ${lng}`;
+  let description = `var x = ${lat}; var y = ${lng}`;
   let body = '';
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
