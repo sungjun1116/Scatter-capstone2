@@ -5,11 +5,13 @@ require('../public/data/starbucks.js')
 require('../public/data/ediya.js')
 require('../public/data/azit.js')
 
+let starbucks = global.starbucks;
+let ediya = global.ediya;
+let azit = global.azit;
+
+
 
 router.post('/', function (req, res, next) {
-  var starbucks = global.starbucks;
-  var ediya = global.ediya;
-  var azit = global.azit;
   var paramId = req.body.item;
   var body;
   console.log(`id : ${paramId}`);
