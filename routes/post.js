@@ -9,13 +9,13 @@ let starbucks = 0;
 let ediya = 0;
 let azit = 0;
 
-const update = setInterval(() => {
+setInterval(function () {
   starbucks -= 1
   ediya -= 1
   azit -= 1
-}, 3000)
+}, 3000);
 
-update();
+
 
 
 
