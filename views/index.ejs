@@ -93,8 +93,8 @@
     }
 
     $("#current").on("click", function (e) {
-      const current_lat = parseFloat(current_lat);
-      const current_lng = parseFloat(current_lng);
+      const current_lat = parseFloat(x);
+      const current_lng = parseFloat(y);
       const gps = new naver.maps.LatLng(current_lat, current_lng);
       map.setZoom(15, false);
       map.panTo(gps);

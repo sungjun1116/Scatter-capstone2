@@ -49,7 +49,7 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  if (paramId !== "undefined") {
+  if (body !== "undefined") {
     setTimeout(function () {
       if (paramId === 'starbucks') {
         starbucks -= 1;
