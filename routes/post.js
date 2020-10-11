@@ -6,14 +6,6 @@ let starbucks = 0;
 let ediya = 0;
 let azit = 0;
 
-
-setInterval(function () {
-  starbucks -= 1
-  ediya -= 1
-  azit -= 1
-}, 3000);
-
-
 router.post('/', function (req, res, next) {
   var paramId = req.body.item;
   var body;
@@ -22,26 +14,36 @@ router.post('/', function (req, res, next) {
     starbucks += 1;
     if (starbucks < 0) starbucks = 0;
     console.log(starbucks);
-    body = `var starbucks = ${starbucks};`;
+    target = "starbuks";
+    body = starbucks;
   } else if (paramId === 'ediya') {
     ediya += 1;
     if (ediya < 0) ediya = 0;
     console.log(ediya);
-    body = `var ediya = ${ediya};`;
+    target = "ediya";
+    count = ediya;
   } else if (paramId === 'azit') {
     azit += 1;
     if (azit < 0) azit = 0;
     console.log(azit);
-    body = `var azit = ${azit};`;
+    target = "azit";
+    count = azit;
   } else console.log('일치하는 아이디가 없습니다!');
 
+  setInterval(function () {
+    starbucks -= 1;
+    ediya -= 1;
+    azit -= 1;
+    count -= 1;
+    body = `var ${target} = ${count}`;
+    fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+      if (err === null) {
+        console.log('success');
+      }
+      else { throw err; }
+    });
+  }, 5000)
 
-  fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
-    if (err === null) {
-      console.log('success');
-    }
-    else { throw err; }
-  });
   res.redirect('/');
 });
 
