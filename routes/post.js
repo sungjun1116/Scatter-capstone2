@@ -10,6 +10,7 @@ router.post('/', function (req, res, next) {
   var paramId = req.body.item;
   var lat = req.body.lat;
   var lng = req.body.lng;
+  console.log(lat); console.log(lng);
   let description = `var lat = ${lat}; var lng = ${lng}`;
   let body;
   let target;
