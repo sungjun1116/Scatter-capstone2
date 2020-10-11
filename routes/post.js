@@ -16,7 +16,6 @@ router.post('/', function (req, res, next) {
   }
   let description = `var lat2 = ${lat}; var lng2 = ${lng}`;
   let body;
-  let target;
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
     starbucks += 1;
@@ -32,13 +31,14 @@ router.post('/', function (req, res, next) {
     body = `var ${paramId} = ${azit}`;
   } else console.log('일치하는 아이디가 없습니다!');
 
-
-  fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
-    if (err === null) {
-      console.log('success');
-    }
-    else { throw err; }
-  });
+  if (!(ParamId === "diddididiididii")) {
+    fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+      if (err === null) {
+        console.log('success');
+      }
+      else { throw err; }
+    });
+  }
 
   if (!(lat === null)) {
     fs.writeFile(`./public/data/gps.js`, description, 'utf8', function (err) {
@@ -63,12 +63,14 @@ router.post('/', function (req, res, next) {
       console.log(`줄어든 값: ${azit}`);
       body = `var ${paramId} = ${azit}`;
     } else console.log('위치정보다 이자식아');
-    fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
-      if (err === null) {
-        console.log('성공');
-      }
-      else { throw err; }
-    });
+    if (!(ParamId === "diddididiididii")) {
+      fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+        if (err === null) {
+          console.log('성공');
+        }
+        else { throw err; }
+      });
+    }
   }, 10000)
 
   res.redirect('/');
