@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
     console.log(lat);
     console.log(lng);
   }
-  let description = `var x = ${lat}; var y = ${lng}`;
+  let description = `var new_lat = ${lat}; var new_lng = ${lng}`;
   let body;
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
@@ -31,7 +31,7 @@ router.post('/', function (req, res, next) {
     body = `var ${paramId} = ${azit}`;
   } else console.log('일치하는 아이디가 없습니다!');
 
-  if (paramId !== "diddididiididii") {
+  if (paramId !== undefined) {
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
         console.log('success');
@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  if (lat !== null) {
+  if (lat !== undefined) {
     fs.writeFile(`./public/data/gps.js`, description, 'utf8', function (err) {
       if (err === null) {
         console.log('success gps');
@@ -49,7 +49,7 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  if (paramId !== "diddididiididii") {
+  if (paramId !== undefined) {
     setTimeout(function () {
       if (paramId === 'starbucks') {
         starbucks -= 1;
