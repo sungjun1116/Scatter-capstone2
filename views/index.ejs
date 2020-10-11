@@ -93,10 +93,9 @@
     }
 
     $("#current").on("click", function (e) {
-      const lat2 = parseFloat(lat2);
-      const lng2 = parseFloat(lng2);
-      alert(lat2)
-      const gps = new naver.maps.LatLng(lat2, lng2);
+      const lat = parseFloat(x);
+      const lng = parseFloat(y);
+      const gps = new naver.maps.LatLng(lat, lng);
       map.setZoom(15, false);
       map.panTo(gps);
     });
