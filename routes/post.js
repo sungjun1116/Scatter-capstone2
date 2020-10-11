@@ -8,20 +8,20 @@ let azit = 0;
 
 router.post('/', function (req, res, next) {
   var paramId = req.body.item;
-  let count = 0;
+  let body;
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
     starbucks += 1;
     console.log(starbucks);
-    count = starbucks;
+    body = `var ${paramId} = ${starbucks}`;
   } else if (paramId === 'ediya') {
     ediya += 1;
     console.log(ediya);
-    count = ediya;
+    body = `var ${paramId} = ${ediya}`;
   } else if (paramId === 'azit') {
     azit += 1;
     console.log(azit);
-    count = azit;
+    body = `var ${paramId} = ${azit}`;
   } else console.log('일치하는 아이디가 없습니다!');
 
   setInterval(function () {
@@ -31,8 +31,6 @@ router.post('/', function (req, res, next) {
     if (ediya < 0) ediya = 0;
     azit -= 1;
     if (azit < 0) azit = 0;
-    count -= 1;
-    let body = `var ${paramId} = ${count}`;
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
         console.log('success');
