@@ -1,2 +1,2 @@
-var new_lat = 37.323602;
-var new_lng = 127.125228;
+var current_lat = 37.323602;
+var current_lng = 127.125228;
