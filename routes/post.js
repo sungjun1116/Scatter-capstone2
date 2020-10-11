@@ -15,7 +15,7 @@ router.post('/', function (req, res, next) {
     console.log(lng);
   }
   let description = `var new_lat = ${lat}; var new_lng = ${lng}`;
-  let body;
+  let body = '';
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
     starbucks += 1;
@@ -31,7 +31,7 @@ router.post('/', function (req, res, next) {
     body = `var ${paramId} = ${azit}`;
   } else console.log('일치하는 아이디가 없습니다!');
 
-  if (body !== "undefined") {
+  if (body !== ``) {
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
         console.log('writeFile success');
@@ -49,7 +49,7 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  if (body !== "undefined") {
+  if (body !== ``) {
     setTimeout(function () {
       if (paramId === 'starbucks') {
         starbucks -= 1;
