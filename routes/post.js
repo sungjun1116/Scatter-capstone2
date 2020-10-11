@@ -2,8 +2,15 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 require('../public/data/starbucks.js')
+require('../public/data/ediya.js')
+require('../public/data/azit.js')
+console.log(global.starbucks);
+console.log(global.ediya);
+console.log(global.azit);
 
-var cafe = { 'starbucks': starbucks, 'ediya': 0, 'azit': 0 };
+var starbucks = starbucks;
+var ediya = ediya;
+var azit = azit;
 
 
 router.post('/', function (req, res, next) {
@@ -11,17 +18,17 @@ router.post('/', function (req, res, next) {
   var body;
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
-    cafe.starbucks += 1;
-    console.log(cafe.starbucks);
-    body = `var starbucks = ${cafe.starbucks};`;
+    starbucks += 1;
+    console.log(starbucks);
+    body = `var starbucks = ${starbucks};`;
   } else if (paramId === 'ediya') {
-    cafe.ediya += 1;
-    console.log(cafe.ediya);
-    body = `var ediya = ${cafe.ediya};`;
+    ediya += 1;
+    console.log(ediya);
+    body = `var ediya = ${ediya};`;
   } else if (paramId === 'azit') {
-    cafe.azit += 1;
-    console.log(cafe.azit);
-    body = `var azit = ${cafe.azit};`;
+    azit += 1;
+    console.log(azit);
+    body = `var azit = ${azit};`;
   } else console.log('일치하는 아이디가 없습니다!');
 
 
