@@ -96,9 +96,9 @@
     $("#current").click(() => {
       const lat = lat;
       const lng = lnt;
-      const latlng = new naver.maps.LatLng(lat, lng);
+      const gps = new naver.maps.LatLng(lat, lng);
       map.setZoom(15, false);
-      map.panTo(latlng);
+      map.panTo(gps);
       // if ('geolocation' in navigator) {
       //   navigator.geolocation.getCurrentPosition(function (position) {
       //     const lat = position.coords.latitude;
