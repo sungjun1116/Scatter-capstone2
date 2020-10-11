@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
   var paramId = req.body.item;
   var lat = req.body.lat;
   var lng = req.body.lng;
-  if (lng & lat) {
+  if !(lat === null) {
     console.log(lat);
     console.log(lng);
   }
@@ -32,12 +32,14 @@ router.post('/', function (req, res, next) {
     body = `var ${paramId} = ${azit}`;
   } else console.log('일치하는 아이디가 없습니다!');
 
-  fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
-    if (err === null) {
-      console.log('success');
-    }
-    else { throw err; }
-  });
+  if (!(lat === null)) {
+    fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+      if (err === null) {
+        console.log('success');
+      }
+      else { throw err; }
+    });
+  }
 
   if (lat && lng) {
     fs.writeFile(`./public/data/${gps}.js`, description, 'utf8', function (err) {
