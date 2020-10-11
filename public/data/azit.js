@@ -1,6 +1,6 @@
-var azit = 100;
-setInterval(function () {
-  azit -= 1
-}, 3000);
+var azit = 0;
+// setInterval(function () {
+//   azit -= 1
+// }, 3000);
 
 
