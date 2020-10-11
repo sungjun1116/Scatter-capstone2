@@ -41,7 +41,7 @@ router.post('/', function (req, res, next) {
   });
 
   if (!(lat === null)) {
-    fs.writeFile(`./public/data/${gps}.js`, description, 'utf8', function (err) {
+    fs.writeFile(`./public/data/gps.js`, description, 'utf8', function (err) {
       if (err === null) {
         console.log('success gps');
       }
