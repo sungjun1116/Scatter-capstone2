@@ -36,12 +36,14 @@ router.post('/', function (req, res, next) {
     else { throw err; }
   });
 
-  fs.writeFile(`./public/data/${gps}.js`, description, 'utf8', function (err) {
-    if (err === null) {
-      console.log('success gps');
-    }
-    else { throw err; }
-  });
+  if (lat && lng) {
+    fs.writeFile(`./public/data/${gps}.js`, description, 'utf8', function (err) {
+      if (err === null) {
+        console.log('success gps');
+      }
+      else { throw err; }
+    });
+  }
 
   setTimeout(function () {
     if (paramId === 'starbucks') {
