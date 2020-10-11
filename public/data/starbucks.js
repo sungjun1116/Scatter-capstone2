@@ -1,1 +1,2 @@
-var starbucks = 0;
+var starbucks = 10;
+global.starbucks = starbucks;

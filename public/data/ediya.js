@@ -1,1 +1,2 @@
-var ediya = 0;
+var ediya = 20;
+global.ediya = ediya;
