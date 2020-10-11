@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
   var paramId = req.body.item;
   var lat = req.body.lat;
   var lng = req.body.lng;
-  if (!(lat === null)) {
+  if (lat !== "undefined") {
     console.log(lat);
     console.log(lng);
   }
