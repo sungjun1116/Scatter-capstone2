@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
         console.log('success');
-        console.log();
+        console.log(`줄어든 값: ${target}`);
       }
       else { throw err; }
     });
