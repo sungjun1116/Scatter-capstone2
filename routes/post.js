@@ -9,7 +9,7 @@ let starbucks = 0;
 let ediya = 0;
 let azit = 0;
 
-update = setInterval(() => {
+const update = setInterval(() => {
   starbucks -= 1
   ediya -= 1
   azit -= 1
