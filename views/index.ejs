@@ -20,7 +20,7 @@
     <input id="search_input" placeholder="목적지를 입력해 주세요" />
     <button id="search_button">검색</button>
   </div>
-  <buton id="current">현재위치</buton>
+  <button id="current">현재위치</button>
 
   <div id="map" style="width:100%;height:100vh;"></div>
 
@@ -93,8 +93,8 @@
     }
 
     $("#current").on("click", function (e) {
-      const lat2 = parseDouble(lat2);
-      const lng2 = parseDouble(lng2);
+      const lat2 = parseFloat(lat2);
+      const lng2 = parseFloat(lng2);
       alert(lat2)
       const gps = new naver.maps.LatLng(lat2, lng2);
       map.setZoom(15, false);

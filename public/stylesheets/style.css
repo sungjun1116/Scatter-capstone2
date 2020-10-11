@@ -6,10 +6,10 @@ body {
 #current {
   position: absolute;
   top: 70px;
-  z-index: 10000;
-  background: white;
   left: 20px;
   padding: 15px;
+  z-index: 10000;
+  background: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   text-align: center;
