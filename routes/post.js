@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+require('../public/data/starbucks.js')
 
-
-var cafe = { 'starbucks': 0, 'ediya': 0, 'azit': 0 };
+var cafe = { 'starbucks': starbucks, 'ediya': 0, 'azit': 0 };
 
 
 router.post('/', function (req, res, next) {
