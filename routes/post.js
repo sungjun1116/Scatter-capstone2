@@ -3,11 +3,9 @@ var router = express.Router();
 var fs = require('fs');
 
 let starbucks = 0;
-if (starbucks < 0) starbucks = 0;
 let ediya = 0;
-if (ediya < 0) ediya = 0;
 let azit = 0;
-if (azit < 0) azit = 0;
+
 
 setInterval(function () {
   starbucks -= 1
@@ -22,14 +20,17 @@ router.post('/', function (req, res, next) {
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
     starbucks += 1;
+    if (starbucks < 0) starbucks = 0;
     console.log(starbucks);
     body = `var starbucks = ${starbucks};`;
   } else if (paramId === 'ediya') {
     ediya += 1;
+    if (ediya < 0) ediya = 0;
     console.log(ediya);
     body = `var ediya = ${ediya};`;
   } else if (paramId === 'azit') {
     azit += 1;
+    if (azit < 0) azit = 0;
     console.log(azit);
     body = `var azit = ${azit};`;
   } else console.log('일치하는 아이디가 없습니다!');
