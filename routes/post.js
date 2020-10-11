@@ -2,12 +2,18 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 // require('../public/data/starbucks.js')
-// require('../public/data/ediya.js')
-require('../public/data/azit.js')
+// // require('../public/data/ediya.js')
+// require('../public/data/azit.js')
 
 let starbucks = 0;
 let ediya = 0;
 let azit = 0;
+
+setInterval(() => {
+  starbucks -= 1
+  ediya -= 1
+  azit -= 1
+}, 3000)
 
 
 
