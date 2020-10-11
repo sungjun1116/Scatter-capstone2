@@ -3,21 +3,38 @@ body {
   margin:0px !important;
 }   
 
-#infoBox {
+#current {
   position: absolute;
-  top:50px;
-  z-index:10000;
-  background-color: white;
+  top: 70px;
+  z-index: 10000;
+  background: white;
   left: 20px;
   padding: 15px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   text-align: center;
+  cursor:pointer;
+  font-weight: bolder;
 }
 
-#infoTitle {
-  font-size: 15px;
-  font-weight: bolder;
+#search {
+  position: absolute;
+  top:70px;
+  left:150px;
+  padding: 15px;
+  z-index: 10000;
+  background: white;
+  border: 1px solid  rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  text-align: center;  
+}
+
+#search_input {
+  border: none;
+}
+
+#search_input:focus {
+  outline:none;
 }
 
 .marker {
@@ -44,40 +61,6 @@ body {
 .infowindow_count {
   font-size: 13px;
   font-weight: normal;
-}
-
-#current {
-  position: absolute;
-  top: 180px;
-  z-index: 10000;
-  background: white;
-  left: 20px;
-  padding: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  text-align: center;
-  cursor:pointer;
-  font-weight: bolder;
-}
-
-#search {
-  position: absolute;
-  top:50px;
-  left:150px;
-  padding: 15px;
-  z-index: 10000;
-  background: white;
-  border: 1px solid  rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  text-align: center;  
-}
-
-#search_input {
-  border: none;
-}
-
-#search_input:focus {
-  outline:none;
 }
 
 #pulse {
