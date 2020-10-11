@@ -25,7 +25,6 @@ router.post('/', function (req, res, next) {
     body = `var ${paramId} = ${azit}`;
   } else console.log('일치하는 아이디가 없습니다!');
 
-
   fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
     if (err === null) {
       console.log('success');
@@ -38,7 +37,16 @@ router.post('/', function (req, res, next) {
       starbucks -= 1;
       console.log(`줄어든 값: ${starbucks}`);
       body = `var ${paramId} = ${starbucks}`;
-    } fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+    } else if (paramId === 'ediya') {
+      ediya -= 1;
+      console.log(`줄어든 값: ${ediya}`);
+      body = `var ${paramId} = ${ediya}`;
+    } else if (paramId === 'azit') {
+      azit -= 1;
+      console.log(`줄어든 값: ${azit}`);
+      body = `var ${paramId} = ${azit}`;
+    } else throw err;
+    fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
         console.log('성공');
       }
