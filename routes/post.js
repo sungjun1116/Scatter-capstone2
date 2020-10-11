@@ -8,6 +8,9 @@ let azit = 0;
 
 router.post('/', function (req, res, next) {
   var paramId = req.body.item;
+  var lat = req.body.lat;
+  var lng = req.body.lng;
+  let description = `var lat = ${lat}; var lng = ${lng}`;
   let body;
   let target;
   console.log(`id : ${paramId}`);
@@ -28,6 +31,13 @@ router.post('/', function (req, res, next) {
   fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
     if (err === null) {
       console.log('success');
+    }
+    else { throw err; }
+  });
+
+  fs.writeFile(`./public/data/${gps}.js`, description, 'utf8', function (err) {
+    if (err === null) {
+      console.log('success gps');
     }
     else { throw err; }
   });

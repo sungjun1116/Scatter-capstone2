@@ -29,6 +29,7 @@
   <script type="text/javascript" src="/data/starbucks.js"></script>
   <script type="text/javascript" src="/data/ediya.js"></script>
   <script type="text/javascript" src="/data/azit.js"></script>
+  <script type="text/javascript" src="/data/gps.js"></script>
   <script>
     var mapOptions = {
       center: new naver.maps.LatLng(37.323602, 127.125228),
@@ -93,28 +94,33 @@
     }
     let currentUse = true;
     $("#current").click(() => {
-      if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-          const latlng = new naver.maps.LatLng(lat, lng);
-          if (currentUse) {
-            marker = new naver.maps.Marker({
-              map: map,
-              position: latlng,
-              icon: {
-                content: '<img id="pulse" draggable="false" unselectable="on" src="https://myfirstmap.s3.ap-northeast-2.amazonaws.com/circle.png">',
-                anchor: new naver.maps.Point(11, 11),
-              }
-            });
-            currentUse = false;
-          }
-          map.setZoom(14, false);
-          map.panTo(latlng);
-        });
-      } else {
-        alert("위치정보 사용 불가능");
-      }
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      const latlng = new naver.maps.LatLng(lat, lng);
+      map.setZoom(15, false);
+      map.panTo(latlng);
+      // if ('geolocation' in navigator) {
+      //   navigator.geolocation.getCurrentPosition(function (position) {
+      //     const lat = position.coords.latitude;
+      //     const lng = position.coords.longitude;
+      //     const latlng = new naver.maps.LatLng(lat, lng);
+      //     if (currentUse) {
+      //       marker = new naver.maps.Marker({
+      //         map: map,
+      //         position: latlng,
+      //         icon: {
+      //           content: '<img id="pulse" draggable="false" unselectable="on" src="https://myfirstmap.s3.ap-northeast-2.amazonaws.com/circle.png">',
+      //           anchor: new naver.maps.Point(11, 11),
+      //         }
+      //       });
+      //       currentUse = false;
+      //     }
+      //     map.setZoom(14, false);
+      //     map.panTo(latlng);
+      //   });
+      // } else {
+      //   alert("위치정보 사용 불가능");
+      // }
     });
 
     let ps = new kakao.maps.services.Places();
