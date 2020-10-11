@@ -15,6 +15,8 @@ setInterval(() => {
   azit -= 1
 }, 3000)
 
+setInterval()
+
 
 
 router.post('/', function (req, res, next) {
