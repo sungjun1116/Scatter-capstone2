@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-require('../public/data/starbucks.js')
-require('../public/data/ediya.js')
+// require('../public/data/starbucks.js')
+// require('../public/data/ediya.js')
 require('../public/data/azit.js')
 
-let starbucks = global.starbucks;
-let ediya = global.ediya;
-let azit = global.azit;
+let starbucks = 0;
+let ediya = 0;
+let azit = 0;
 
 
 

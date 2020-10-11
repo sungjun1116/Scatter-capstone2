@@ -1,4 +1,4 @@
 var azit = 30;
-global.azit = azit;
+// global.azit = azit;
 
 
