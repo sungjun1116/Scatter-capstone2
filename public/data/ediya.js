@@ -1,3 +1,4 @@
-var ediya = 20;
-
-// global.ediya = ediya;
+var ediya = 100;
+setInterval(function () {
+  starbucks -= 1
+}, 3000);

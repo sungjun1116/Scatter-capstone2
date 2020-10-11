@@ -1,4 +1,6 @@
-var azit = 30;
-// global.azit = azit;
+var azit = 100;
+setInterval(function () {
+  azit -= 1
+}, 3000);
 
 

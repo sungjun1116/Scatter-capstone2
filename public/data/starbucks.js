@@ -1,3 +1,5 @@
-var starbucks = 10;
-// global.starbucks = starbucks;
+var starbucks = 100;
+setInterval(function () {
+  starbucks -= 1
+}, 3000);
 
