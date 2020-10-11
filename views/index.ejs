@@ -94,8 +94,9 @@
     }
     let currentUse = true;
     $("#current").click(() => {
-      const lat2 = parseInt(lat2);
-      const lng2 = parseInt(lng2);
+      const lat2 = parseDouble(lat2);
+      const lng2 = parseDouble(lng2);
+      alert(lat2)
       const gps = new naver.maps.LatLng(lat2, lng2);
       map.setZoom(15, false);
       map.panTo(gps);
