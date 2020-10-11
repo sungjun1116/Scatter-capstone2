@@ -43,7 +43,7 @@ router.post('/', function (req, res, next) {
   if (lat !== undefined) {
     fs.writeFile(`./public/data/gps.js`, description, 'utf8', function (err) {
       if (err === null) {
-        console.log('get gps info');
+        console.log('Get GPS success');
       }
       else { throw err; }
     });
@@ -66,7 +66,7 @@ router.post('/', function (req, res, next) {
       } else console.log('일치하는 값이 없습니다.');
       fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
         if (err === null) {
-          console.log('update success');
+          console.log('Update success');
         }
         else { throw err; }
       });
