@@ -4,13 +4,10 @@ var fs = require('fs');
 require('../public/data/starbucks.js')
 require('../public/data/ediya.js')
 require('../public/data/azit.js')
-console.log(global.starbucks);
-console.log(global.ediya);
-console.log(global.azit);
 
-var starbucks = starbucks;
-var ediya = ediya;
-var azit = azit;
+var starbucks = global.starbucks;
+var ediya = global.ediya;
+var azit = global.azit;
 
 
 router.post('/', function (req, res, next) {
