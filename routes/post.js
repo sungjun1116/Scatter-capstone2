@@ -62,7 +62,7 @@ router.post('/', function (req, res, next) {
       azit -= 1;
       console.log(`줄어든 값: ${azit}`);
       body = `var ${paramId} = ${azit}`;
-    } else throw err;
+    } else console.log('위치정보다 이자식아');
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
         console.log('성공');
