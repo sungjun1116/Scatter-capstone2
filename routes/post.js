@@ -8,14 +8,15 @@ let azit = 0;
 
 router.post('/', function (req, res, next) {
   var paramId = req.body.item;
-  var body;
+  let target = "";
+  let count = 0;
   console.log(`id : ${paramId}`);
   if (paramId === 'starbucks') {
     starbucks += 1;
     if (starbucks < 0) starbucks = 0;
     console.log(starbucks);
     target = "starbuks";
-    body = starbucks;
+    count = starbucks;
   } else if (paramId === 'ediya') {
     ediya += 1;
     if (ediya < 0) ediya = 0;
@@ -35,7 +36,7 @@ router.post('/', function (req, res, next) {
     ediya -= 1;
     azit -= 1;
     count -= 1;
-    body = `var ${target} = ${count}`;
+    let body = `var ${target} = ${count}`;
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
         console.log('success');
