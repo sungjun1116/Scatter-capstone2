@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
   var paramId = req.body.item;
   var lat = req.body.lat;
   var lng = req.body.lng;
-  if (lat !== "undefined") {
+  if (lat !== undefined) {
     console.log(lat);
     console.log(lng);
   }
@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  if (lat !== "undefined") {
+  if (lat !== undefined) {
     fs.writeFile(`./public/data/gps.js`, description, 'utf8', function (err) {
       if (err === null) {
         console.log('success gps');
