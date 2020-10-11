@@ -20,8 +20,7 @@
     <input id="search_input" placeholder="목적지를 입력해 주세요" />
     <button id="search_button">검색</button>
   </div>
-  <div id="current">현재위치</div>
-
+  <buton id="current">현재위치</buton>
 
   <div id="map" style="width:100%;height:100vh;"></div>
 
@@ -92,37 +91,14 @@
         }
       }
     }
-    let currentUse = true;
 
-    $("#current").click(() => {
+    $("#current").on("click", function (e) {
       const lat2 = parseDouble(lat2);
       const lng2 = parseDouble(lng2);
       alert(lat2)
       const gps = new naver.maps.LatLng(lat2, lng2);
       map.setZoom(15, false);
       map.panTo(gps);
-      // if ('geolocation' in navigator) {
-      //   navigator.geolocation.getCurrentPosition(function (position) {
-      //     const lat = position.coords.latitude;
-      //     const lng = position.coords.longitude;
-      //     const latlng = new naver.maps.LatLng(lat, lng);
-      //     if (currentUse) {
-      //       marker = new naver.maps.Marker({
-      //         map: map,
-      //         position: latlng,
-      //         icon: {
-      //           content: '<img id="pulse" draggable="false" unselectable="on" src="https://myfirstmap.s3.ap-northeast-2.amazonaws.com/circle.png">',
-      //           anchor: new naver.maps.Point(11, 11),
-      //         }
-      //       });
-      //       currentUse = false;
-      //     }
-      //     map.setZoom(14, false);
-      //     map.panTo(latlng);
-      //   });
-      // } else {
-      //   alert("위치정보 사용 불가능");
-      // }
     });
 
     let ps = new kakao.maps.services.Places();
