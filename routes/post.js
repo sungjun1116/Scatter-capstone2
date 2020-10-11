@@ -3,15 +3,17 @@ var router = express.Router();
 var fs = require('fs');
 
 let starbucks = 0;
+if (starbucks < 0) starbucks = 0;
 let ediya = 0;
+if (ediya < 0) ediya = 0;
 let azit = 0;
+if (azit < 0) azit = 0;
 
 setInterval(function () {
   starbucks -= 1
   ediya -= 1
   azit -= 1
 }, 3000);
-
 
 
 router.post('/', function (req, res, next) {

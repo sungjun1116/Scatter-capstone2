@@ -42,13 +42,13 @@
     var markerList = [];
     var infowindowList = [];
 
-    setInterval(function () {
-      starbucks -= 1
-      ediya -= 1
-      azit -= 1
-    }, 3000);
 
     for (let i in data) {
+      setInterval(function () {
+        starbucks -= 1
+        ediya -= 1
+        azit -= 1
+      }, 3000);
       let target = data[i];
       if (target.name === "스타벅스") {
         count = starbucks;
