@@ -49,29 +49,29 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  setTimeout(function () {
-    if (paramId === 'starbucks') {
-      starbucks -= 1;
-      console.log(`줄어든 값: ${starbucks}`);
-      body = `var ${paramId} = ${starbucks}`;
-    } else if (paramId === 'ediya') {
-      ediya -= 1;
-      console.log(`줄어든 값: ${ediya}`);
-      body = `var ${paramId} = ${ediya}`;
-    } else if (paramId === 'azit') {
-      azit -= 1;
-      console.log(`줄어든 값: ${azit}`);
-      body = `var ${paramId} = ${azit}`;
-    } else console.log('위치정보다 이자식아');
-    if (!(paramId === "diddididiididii")) {
+  if (!(paramId === "diddididiididii")) {
+    setTimeout(function () {
+      if (paramId === 'starbucks') {
+        starbucks -= 1;
+        console.log(`줄어든 값: ${starbucks}`);
+        body = `var ${paramId} = ${starbucks}`;
+      } else if (paramId === 'ediya') {
+        ediya -= 1;
+        console.log(`줄어든 값: ${ediya}`);
+        body = `var ${paramId} = ${ediya}`;
+      } else if (paramId === 'azit') {
+        azit -= 1;
+        console.log(`줄어든 값: ${azit}`);
+        body = `var ${paramId} = ${azit}`;
+      } else console.log('일치하는 값이 없습니다.');
       fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
         if (err === null) {
           console.log('성공');
         }
         else { throw err; }
       });
-    }
-  }, 10000)
+    }, 10000)
+  }
 
   res.redirect('/');
 });
