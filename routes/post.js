@@ -34,7 +34,7 @@ router.post('/', function (req, res, next) {
   if (body !== ``) {
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {
-        console.log('writeFile success');
+        console.log('Writefile success');
       }
       else { throw err; }
     });
@@ -43,7 +43,7 @@ router.post('/', function (req, res, next) {
   if (lat !== undefined) {
     fs.writeFile(`./public/data/gps.js`, description, 'utf8', function (err) {
       if (err === null) {
-        console.log('success gps');
+        console.log('get gps info');
       }
       else { throw err; }
     });
@@ -53,15 +53,15 @@ router.post('/', function (req, res, next) {
     setTimeout(function () {
       if (paramId === 'starbucks') {
         starbucks -= 1;
-        console.log(`줄어든 값: ${starbucks}`);
+        console.log(`남은 이용객 수 : ${starbucks}`);
         body = `var ${paramId} = ${starbucks}`;
       } else if (paramId === 'ediya') {
         ediya -= 1;
-        console.log(`줄어든 값: ${ediya}`);
+        console.log(`남은 이용객 수: ${ediya}`);
         body = `var ${paramId} = ${ediya}`;
       } else if (paramId === 'azit') {
         azit -= 1;
-        console.log(`줄어든 값: ${azit}`);
+        console.log(`남은 이용객 수: ${azit}`);
         body = `var ${paramId} = ${azit}`;
       } else console.log('일치하는 값이 없습니다.');
       fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
