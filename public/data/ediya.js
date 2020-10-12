@@ -1,1 +1,1 @@
-var ediya = 20;
+var ediya = 30;

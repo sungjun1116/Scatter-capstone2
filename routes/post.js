@@ -69,7 +69,7 @@ router.post('/', function (req, res, next) {
         }
         else { throw err; }
       });
-    }, 10000)
+    }, 60000)
   }
 
   res.redirect('/');

@@ -44,16 +44,23 @@
       if (target.name === "스타벅스") {
         count = starbucks;
         total = 80;
-        congestion = count / total * 100;
+        congestion = (count / total * 100).toFixed(1);
       } else if (target.name === "이디야 커피") {
         count = ediya;
         total = 40;
-        congestion = count / total * 100;
+        congestion = (count / total * 100).toFixed(1);
       } else {
         count = azit;
         total = 15;
-        congestion = count / total * 100;
+        congestion = (count / total * 100).toFixed(1);
       }
+
+      let notice = '';
+      if (congestion >= 70) {
+        notice = "혼잡할 수 있는 시설입니다.";
+      }
+
+
       let latlng = new naver.maps.LatLng(target.lat, target.lng);
       marker = new naver.maps.Marker({
         map: map,
@@ -67,6 +74,7 @@
           <div class='infowindow_name'>${target.name}</div>
           <div class='infowindow_count'>이용가능 좌석: ${count}석 / ${total}석</div>
           <div class='infowindow_congestion'>좌석 점유도: ${congestion}%</div>
+          <div class='infowindow_notice'>${notice}</div>
         </div>`
       var infowindow = new naver.maps.InfoWindow({
         content: content,
