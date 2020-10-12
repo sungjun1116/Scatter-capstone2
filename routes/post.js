@@ -10,36 +10,11 @@ router.post('/', function (req, res, next) {
   var paramId = req.body.item;
   var lat = req.body.lat;
   var lng = req.body.lng;
-  if (lat !== undefined) {
+  // 현재위치로 가는 기능 구현
+  if (paramId === undefined) {
     console.log(`현재 위도: ${lat}`);
     console.log(`현재 경도: ${lng}`);
-  }
-  let description = `var x = ${lat}; var y = ${lng}`;
-  let body = '';
-  console.log(`id : ${paramId}`);
-  if (paramId === 'starbucks') {
-    starbucks += 1;
-    console.log(starbucks);
-    body = `var ${paramId} = ${starbucks}`;
-  } else if (paramId === 'ediya') {
-    ediya += 1;
-    console.log(ediya);
-    body = `var ${paramId} = ${ediya}`;
-  } else if (paramId === 'azit') {
-    target = azit += 1;
-    console.log(azit);
-    body = `var ${paramId} = ${azit}`;
-  } else console.log('일치하는 아이디가 없습니다!');
-  if (body !== ``) {
-    fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
-      if (err === null) {
-        console.log('Writefile success');
-      }
-      else { throw err; }
-    });
-  }
-
-  if (lat !== undefined) {
+    let description = `var x = ${lat}; var y = ${lng}`;
     fs.writeFile(`./public/data/gps.js`, description, 'utf8', function (err) {
       if (err === null) {
         console.log('Get GPS success');
@@ -47,31 +22,55 @@ router.post('/', function (req, res, next) {
       else { throw err; }
     });
   }
-
-  if (body !== ``) {
-    setTimeout(function () {
-      if (paramId === 'starbucks') {
-        starbucks -= 1;
-        console.log(`남은 이용객 수 : ${starbucks}`);
-        body = `var ${paramId} = ${starbucks}`;
-      } else if (paramId === 'ediya') {
-        ediya -= 1;
-        console.log(`남은 이용객 수: ${ediya}`);
-        body = `var ${paramId} = ${ediya}`;
-      } else if (paramId === 'azit') {
-        azit -= 1;
-        console.log(`남은 이용객 수: ${azit}`);
-        body = `var ${paramId} = ${azit}`;
-      } else console.log('일치하는 값이 없습니다.');
+  // writeFile 기능 구현
+  else {
+    let body = '';
+    console.log(`id : ${paramId}`);
+    if (paramId === 'starbucks') {
+      starbucks += 1;
+      console.log(starbucks);
+      body = `var ${paramId} = ${starbucks}`;
+    } else if (paramId === 'ediya') {
+      ediya += 1;
+      console.log(ediya);
+      body = `var ${paramId} = ${ediya}`;
+    } else if (paramId === 'azit') {
+      target = azit += 1;
+      console.log(azit);
+      body = `var ${paramId} = ${azit}`;
+    } else console.log('일치하는 아이디가 없습니다!');
+    if (body !== ``) {
       fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
         if (err === null) {
-          console.log('Update success');
+          console.log('Writefile success');
         }
         else { throw err; }
       });
-    }, 60000)
+    }
+    if (body !== ``) {
+      setTimeout(function () {
+        if (paramId === 'starbucks') {
+          starbucks -= 1;
+          console.log(`남은 이용객 수 : ${starbucks}`);
+          body = `var ${paramId} = ${starbucks}`;
+        } else if (paramId === 'ediya') {
+          ediya -= 1;
+          console.log(`남은 이용객 수: ${ediya}`);
+          body = `var ${paramId} = ${ediya}`;
+        } else if (paramId === 'azit') {
+          azit -= 1;
+          console.log(`남은 이용객 수: ${azit}`);
+          body = `var ${paramId} = ${azit}`;
+        } else console.log('일치하는 값이 없습니다.');
+        fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+          if (err === null) {
+            console.log('Update success');
+          }
+          else { throw err; }
+        });
+      }, 60000)
+    }
   }
-
   res.redirect('/');
 });
 
