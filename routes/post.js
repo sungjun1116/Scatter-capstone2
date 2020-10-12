@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
   var lat = req.body.lat;
   var lng = req.body.lng;
   // 현재위치로 가는 기능 구현
-  if (paramId === undefined) {
+  if (lat !== undefined && lng !== undefined) {
     console.log(`현재 위도: ${lat}`);
     console.log(`현재 경도: ${lng}`);
     let description = `var x = ${lat}; var y = ${lng}`;
