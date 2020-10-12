@@ -11,8 +11,8 @@ router.post('/', function (req, res, next) {
   var lat = req.body.lat;
   var lng = req.body.lng;
   if (lat !== undefined) {
-    console.log(lat);
-    console.log(lng);
+    console.log(`현재 위도: ${lat}`);
+    console.log(`현재 경도: ${lng}`);
   }
   let description = `var x = ${lat}; var y = ${lng}`;
   let body = '';
@@ -30,7 +30,6 @@ router.post('/', function (req, res, next) {
     console.log(azit);
     body = `var ${paramId} = ${azit}`;
   } else console.log('일치하는 아이디가 없습니다!');
-
   if (body !== ``) {
     fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
       if (err === null) {

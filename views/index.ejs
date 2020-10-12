@@ -43,10 +43,16 @@
       let target = data[i];
       if (target.name === "스타벅스") {
         count = starbucks;
+        total = 80;
+        congestion = count / total * 100;
       } else if (target.name === "이디야 커피") {
         count = ediya;
+        total = 40;
+        congestion = count / total * 100;
       } else {
         count = azit;
+        total = 15;
+        congestion = count / total * 100;
       }
       let latlng = new naver.maps.LatLng(target.lat, target.lng);
       marker = new naver.maps.Marker({
@@ -59,7 +65,8 @@
       });
       var content = `<div class='infowindow_wrap'>
           <div class='infowindow_name'>${target.name}</div>
-          <div class='infowindow_count'>${count}</div>
+          <div class='infowindow_count'>이용가능 좌석: ${count}석 / ${total}석</div>
+          <div class='infowindow_congestion'>좌석 점유도: ${congestion}%</div>
         </div>`
       var infowindow = new naver.maps.InfoWindow({
         content: content,
@@ -97,7 +104,7 @@
       alert('메인화면으로 돌아가려면 reload버튼을 누르세요!');
       const current_lng = parseFloat(y);
       const gps = new naver.maps.LatLng(current_lat, current_lng);
-      map.setZoom(15, false);
+      map.setZoom(16, false);
       map.panTo(gps);
     });
 
@@ -133,7 +140,7 @@
           let pre_marker = search_arr.splice(0, 1);
           pre_marker[0].setMap(null);
         }
-        map.setZoom(15, false);
+        map.setZoom(16, false);
         map.panTo(latlng);
         console.log(target);
       } else {
