@@ -110,8 +110,7 @@
     $("#current").on("click", function (e) {
       const current_lat = parseFloat(x);
       const current_lng = parseFloat(y);
-      alert('메인화면으로 돌아가려면 reload버튼을 누르세요!');
-      const gps = new naver.maps.LatLng(current_lat, current_lng);
+      // alert('메인화면으로 돌아가려면 reload버튼을 누르세요!');
       map.setZoom(18, false);
       map.panTo(gps);
     });
