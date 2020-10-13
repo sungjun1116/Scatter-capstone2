@@ -116,13 +116,6 @@
         position: gps,
         map: map
       })
-      if (search_arr.length === 0) {
-        search_arr.push(marker);
-      } else {
-        search_arr.push(marker);
-        let pre_marker = search_arr.splice(0, 1);
-        pre_marker[0].setMap(null);
-      }
       map.setZoom(18, false);
       map.panTo(gps);
     });
