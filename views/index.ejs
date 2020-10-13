@@ -112,10 +112,6 @@
       alert('메인화면으로 돌아가려면 reload버튼을 누르세요!');
       const current_lng = parseFloat(y);
       const gps = new naver.maps.LatLng(current_lat, current_lng);
-      marker = new naver.maps.Marker({
-        position: gps,
-        map: map
-      })
       map.setZoom(18, false);
       map.panTo(gps);
     });
