@@ -12,8 +12,6 @@ color:#49525c;
   height: 120px;
 }
 
-
-
 .content {
   width: 80%;
   height: 10rem;
@@ -27,7 +25,7 @@ color:#49525c;
 }
 ul {
   list-style:none;
-  margin: 10px;
+  margin: 70px 10px;
 }
 #news_title{
   color:#4f5257;
