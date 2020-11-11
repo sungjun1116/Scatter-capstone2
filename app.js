@@ -28,7 +28,7 @@ app.use('/gym', gymRouter);
 app.use('/restaurant', restaurantRouter);
 app.use('/news', newsRouter);
 
-// catch 404 and forward to error handler
+// catch 404 and to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
