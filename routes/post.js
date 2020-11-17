@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
       body = `var ${paramId} = ${azit}`;
     } else console.log('일치하는 아이디가 없습니다!');
     if (body !== ``) {
-      fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+      fs.writeFile(`./public/data/cafe/${paramId}.js`, body, 'utf8', function (err) {
         if (err === null) {
           console.log('Writefile success');
         }
