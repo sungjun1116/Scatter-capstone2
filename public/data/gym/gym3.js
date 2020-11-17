@@ -1,1 +1,1 @@
-var gym3 = 10;
+var gym3 = 0;

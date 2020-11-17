@@ -1,2 +1,2 @@
-var azit = 10;
+var azit = 0;
 
