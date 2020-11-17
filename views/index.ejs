@@ -26,9 +26,9 @@
   <div id="map" style="width:100%;height:100vh;"></div>
 
   <script type="text/javascript" src="/data/data.js"></script>
-  <script type="text/javascript" src="/data/starbucks.js"></script>
-  <script type="text/javascript" src="/data/ediya.js"></script>
-  <script type="text/javascript" src="/data/azit.js"></script>
+  <script type="text/javascript" src="/data/cafe/starbucks.js"></script>
+  <script type="text/javascript" src="/data/cafe/ediya.js"></script>
+  <script type="text/javascript" src="/data/cafe/azit.js"></script>
   <script type="text/javascript" src="/data/gps.js"></script>
   <script>
     var mapOptions = {
@@ -52,7 +52,7 @@
         congestion = (count / total * 100).toFixed(1);
       } else {
         count = azit;
-        total = 15;
+        total = 20;
         congestion = (count / total * 100).toFixed(1);
       }
 

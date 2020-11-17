@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin-Data</title>
+  <link rel="stylesheet" href="/stylesheets/admin.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <script type="text/javascript" src="/data/cafe/starbucks.js"></script>
+  <script type="text/javascript" src="/data/cafe/ediya.js"></script>
+  <script type="text/javascript" src="/data/cafe/azit.js"></script>
+  <script type="text/javascript" src="/data/gym/gym1.js"></script>
+  <script type="text/javascript" src="/data/gym/gym2.js"></script>
+  <script type="text/javascript" src="/data/gym/gym3.js"></script>
+  <script type="text/javascript" src="/data/restaurant/r1.js"></script>
+  <script type="text/javascript" src="/data/restaurant/r2.js"></script>
+  <script type="text/javascript" src="/data/restaurant/r3.js"></script>
+  <table>
+    <caption>관리자용 페이지</caption>
+    <thead>
+      <tr>
+        <th scope="col">직종</th>
+        <th scope="col">시설 이름</th>
+        <th scope="col">현재 이용객 수</th>
+        <th scope="col">예상 혼잡도(%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Account">카페</td>
+        <td data-label="Due Date">스타벅스</td>
+        <td data-label="Amount" id="cafe1">
+        </td>
+        <td data-label="Period" id="cafe_rate_1"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Account">카페</td>
+        <td data-label="Due Date">이디야 커피</td>
+        <td data-label="Amount" id="cafe2"></td>
+        <td data-label="Period" id="cafe_rate_2"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Account">카페</td>
+        <td data-label="Due Date">아지트</td>
+        <td data-label="Amount" id="cafe3"></td>
+        <td data-label="Period" id="cafe_rate_3"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Acount">헬스장</td>
+        <td data-label="Due Date">하다짐</td>
+        <td data-label="Amount" id="gym1"></td>
+        <td data-label="Period" id="gym_rate_1"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Acount">헬스장</td>
+        <td data-label="Due Date">하이짐</td>
+        <td data-label="Amount" id="gym2"></td>
+        <td data-label="Period" id="gym_rate_2"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Acount">헬스장</td>
+        <td data-label="Due Date">트리거짐</td>
+        <td data-label="Amount" id="gym3"></td>
+        <td data-label="Period" id="gym_rate_3"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Acount">식당</td>
+        <td data-label="Due Date">호식당</td>
+        <td data-label="Amount" id="restaurant1"></td>
+        <td data-label="Period" id="r_rate_1"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Acount">식당</td>
+        <td data-label="Due Date">고수찜닭</td>
+        <td data-label="Amount" id="restaurant2"></td>
+        <td data-label="Period" id="r_rate_2"></td>
+      </tr>
+      <tr>
+        <td scope="row" data-label="Acount">식당</td>
+        <td data-label="Due Date">고래심줄</td>
+        <td data-label="Amount" id="restaurant3"></td>
+        <td data-label="Period" id="r_rate_3"></td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    let cafe_rate_1 = (starbucks / 80 * 100).toFixed(1);
+    let cafe_rate_2 = (ediya / 40 * 100).toFixed(1);
+    let cafe_rate_3 = (azit / 20 * 100).toFixed(1);
+    let gym_rate_1 = (gym1 / 60 * 100).toFixed(1);
+    let gym_rate_2 = (gym2 / 40 * 100).toFixed(1);
+    let gym_rate_3 = (gym3 / 50 * 100).toFixed(1);
+    let r_rate_1 = (r1 / 25 * 100).toFixed(1);
+    let r_rate_2 = (r2 / 40 * 100).toFixed(1);
+    let r_rate_3 = (r3 / 30 * 100).toFixed(1);
+    document.getElementById("cafe1").innerHTML = starbucks;
+    document.getElementById("cafe2").innerHTML = ediya;
+    document.getElementById("cafe3").innerHTML = azit;
+    document.getElementById("gym1").innerHTML = gym1;
+    document.getElementById("gym2").innerHTML = gym2;
+    document.getElementById("gym3").innerHTML = gym3;
+    document.getElementById("restaurant1").innerHTML = r1;
+    document.getElementById("restaurant2").innerHTML = r2;
+    document.getElementById("restaurant3").innerHTML = r3;
+    document.getElementById("cafe_rate_1").innerHTML = cafe_rate_1;
+    document.getElementById("cafe_rate_2").innerHTML = cafe_rate_2;
+    document.getElementById("cafe_rate_3").innerHTML = cafe_rate_3;
+    document.getElementById("gym_rate_1").innerHTML = gym_rate_1;
+    document.getElementById("gym_rate_2").innerHTML = gym_rate_2;
+    document.getElementById("gym_rate_3").innerHTML = gym_rate_3;
+    document.getElementById("r_rate_1").innerHTML = r_rate_1;
+    document.getElementById("r_rate_2").innerHTML = r_rate_2;
+    document.getElementById("r_rate_3").innerHTML = r_rate_3;
+  </script>
+</body>
+
+</html>
