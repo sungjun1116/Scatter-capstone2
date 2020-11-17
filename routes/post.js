@@ -62,7 +62,7 @@ router.post('/', function (req, res, next) {
           console.log(`남은 이용객 수: ${azit}`);
           body = `var ${paramId} = ${azit}`;
         } else console.log('일치하는 값이 없습니다.');
-        fs.writeFile(`./public/data/${paramId}.js`, body, 'utf8', function (err) {
+        fs.writeFile(`./public/data/cafe/${paramId}.js`, body, 'utf8', function (err) {
           if (err === null) {
             console.log('Update success');
           }
