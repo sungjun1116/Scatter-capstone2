@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+let { time_cafe } = require('../lib/date');
 
 let starbucks = 0;
 let ediya = 0;
@@ -68,7 +69,7 @@ router.post('/', function (req, res, next) {
           }
           else { throw err; }
         });
-      }, 60000)
+      }, time_cafe)
     }
   }
   res.redirect('/');

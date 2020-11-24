@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+let { time_gym } = require('../lib/date');
 
 let gym1 = 0;
 let gym2 = 0;
@@ -68,7 +69,7 @@ router.post('/', function (req, res, next) {
           }
           else { throw err; }
         });
-      }, 60000)
+      }, time_gym)
     }
   }
   res.redirect('/');
