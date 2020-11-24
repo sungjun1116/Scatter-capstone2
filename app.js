@@ -3,12 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var gymRouter = require('./routes/gym');
 var restaurantRouter = require('./routes/restaurant');
 var newsRouter = require('./routes/news');
 var postRouter = require('./routes/post');
+var postRouter2 = require('./routes/post2');
+var postRouter3 = require('./routes/post3');
 var adminRouter = require('./routes/admin');
 
 var app = express();
@@ -25,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/post', postRouter);
+app.use('/post2', postRouter2);
+app.use('/post3', postRouter3);
 app.use('/gym', gymRouter);
 app.use('/restaurant', restaurantRouter);
 app.use('/news', newsRouter);
