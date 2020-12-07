@@ -9,7 +9,7 @@
 > 이 프로젝트는 [Node.js-express 프레임워크](http://expressjs.com/)로 만들어졌습니다.
 
 ## Development Configuration
-본인의 작업 환경에 만약 node.js가 설치되지 않았다면 node.js를 먼저 설치해 줍니다.[node.js 다운로드 페이지](https://nodejs.org/en/)  
+본인의 작업 환경에 만약 node.js가 설치되지 않았다면 node.js를 먼저 설치해 줍니다. [node.js 다운로드 페이지](https://nodejs.org/en/)  
 Repository를 다운 받은 후, 다음 명령어를 입력해 줍니다. 
 
 ```
@@ -36,7 +36,7 @@ App이 `http://localhost:3000`에서 실행됩니다.
 ## Feature
 ![image](https://user-images.githubusercontent.com/59200428/101356776-eec7d900-38db-11eb-8801-7c0df600aca7.png)
 
-이 프로젝트는 다중이용시설 예상 혼잡도 제공과 함께 코로나 19와 관련된 정보를 제공하는 기능을 가지고 있습니다.  
+이 프로젝트는 다중이용시설 예상 혼잡도 제공과 함께 코로나 19와 관련된 정보를 제공하는 기능을 가지고 있습니다.   
 > 실제로는  웹페이지로 만들어진 지도서비스가 안드로이드 앱에 웹뷰 형태로 삽입되는 구조로, 디렉토리를 다운받아 실행되는 웹페이지 화면과 안드로이드 앱 화면을 캡쳐한 상기 이미지는 다소 차이가 있을 수 있습니다. 
 * MAP(등록된 카페, 헬스장, 식당의 예상 이용객 수와 좌석 점유도 확인)
 * Admin(로그인 후 손님의 QR코드를 스캔)
