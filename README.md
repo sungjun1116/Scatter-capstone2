@@ -44,16 +44,16 @@ App이 `http://localhost:3000`에서 실행됩니다.
 * News(웹 크롤링 기술을 통한 코로나와 관련된 뉴스 제공)
 
 ### Main Menu
-<img width="400" alt="main" src="https://user-images.githubusercontent.com/59200428/101358711-95ad7480-38de-11eb-9fb6-4fce5e9b4e8a.PNG">
+<img width="600" alt="main" src="https://user-images.githubusercontent.com/59200428/101358711-95ad7480-38de-11eb-9fb6-4fce5e9b4e8a.PNG">
 
 ### MAP(Cafe, restaurant, gym)
-<img width="400" alt="map" src="https://user-images.githubusercontent.com/59200428/101358719-96dea180-38de-11eb-8093-48794430ea1d.PNG">
+<img width="600" alt="map" src="https://user-images.githubusercontent.com/59200428/101358719-96dea180-38de-11eb-8093-48794430ea1d.PNG">
 
 ### Admin
-<img width="400" alt="admin" src="https://user-images.githubusercontent.com/59200428/101358714-96460b00-38de-11eb-94a1-d2bb83b19dd8.PNG">
+<img width="600" alt="admin" src="https://user-images.githubusercontent.com/59200428/101358714-96460b00-38de-11eb-94a1-d2bb83b19dd8.PNG">
 
 ### News
-<img width="200" alt="news" src="https://user-images.githubusercontent.com/59200428/101358709-9514de00-38de-11eb-82da-fc34e86f707b.PNG">
+<img width="400" alt="news" src="https://user-images.githubusercontent.com/59200428/101358709-9514de00-38de-11eb-82da-fc34e86f707b.PNG">
 
 **[시연 영상](https://youtu.be/cZTpfFr4Uck)**
 
