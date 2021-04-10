@@ -9,7 +9,7 @@ router.get("/", function (req, res, next) {
 router.post("/", function (req, res, next) {
   const { lat, lng } = req.body;
   if (lat !== undefined && lng !== undefined) {
-    console.log(`현재 위도: ${lat}`);
+    console.log(`현재 위도: ${lat}`, type of lat);
     console.log(`현재 경도: ${lng}`);
     let description = `var x = ${lat}; var y = ${lng}`;
     fs.writeFile(`./public/data/gps.js`, description, "utf8", function (err) {
