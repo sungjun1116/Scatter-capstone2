@@ -16,6 +16,11 @@ router.post("/", function (req, res, next) {
     fs.writeFile(`./public/data/gps.js`, description, "utf8", function (err) {
       if (err === null) {
         console.log("Get GPS success");
+        return res.json({
+          isSuccess: true,
+          code: 2000,
+          message: "위치 입력 성공",
+        });
       } else {
         throw err;
       }
