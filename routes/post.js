@@ -31,15 +31,15 @@ router.post("/", function (req, res, next) {
     let body = "";
     console.log(`id : ${paramId}`);
     if (paramId === "starbucks") {
-      starbucks == count;
+      starbucks = count;
       console.log(starbucks);
       body = `var ${paramId} = ${starbucks}`;
     } else if (paramId === "ediya") {
-      ediya == count;
+      ediya = count;
       console.log(ediya);
       body = `var ${paramId} = ${ediya}`;
     } else if (paramId === "azit") {
-      azit == count;
+      azit = count;
       console.log(azit);
       body = `var ${paramId} = ${azit}`;
     } else console.log("일치하는 아이디가 없습니다!");
