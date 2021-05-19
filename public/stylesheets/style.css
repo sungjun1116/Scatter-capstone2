@@ -1,7 +1,7 @@
 body {
   padding: 0px !important;
-  margin:0px !important;
-}   
+  margin: 0px !important;
+}
 
 #current {
   position: absolute;
@@ -13,20 +13,25 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   text-align: center;
-  cursor:pointer;
+  cursor: pointer;
   font-weight: bolder;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
 }
 
 #search {
   position: absolute;
-  top:70px;
-  left:150px;
+  top: 70px;
+  left: 150px;
   padding: 15px;
   z-index: 10000;
   background: white;
-  border: 1px solid  rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  text-align: center;  
+  text-align: center;
 }
 
 #search_input {
@@ -34,7 +39,7 @@ body {
 }
 
 #search_input:focus {
-  outline:none;
+  outline: none;
 }
 
 .marker {
@@ -46,7 +51,11 @@ body {
   border-radius: 50%;
 }
 
-.infowindow_wrap{
+.myPosition {
+  background-color: blue;
+}
+
+.infowindow_wrap {
   background: white;
   padding: 20px;
   border: 2px solid rgba(0, 0, 0, 0.2);
@@ -72,4 +81,27 @@ body {
   font-weight: bold;
   color: red;
   /* text-align: center; */
+}
+
+#roadview {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.search__url {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: all 300ms ease-in;
+}
+
+.search__url:hover {
+  color: red;
+}
+
+.infowindow_roadmap {
+  margin-top: 4px;
 }
