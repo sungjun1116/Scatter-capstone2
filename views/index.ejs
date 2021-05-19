@@ -20,7 +20,7 @@
     ></script>
     <script
       type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=''&libraries=services"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=02413c400dc29521d2080a12ef9b4a13&libraries=services"
     ></script>
   </head>
 
@@ -49,7 +49,9 @@
       var map = new naver.maps.Map("map", mapOptions);
       var markerList = [];
       var infowindowList = [];
+      const roadviewContainer = document.getElementById("roadview");
 
+      // 현재 위치
       // navigator.geolocation.getCurrentPosition(function (pos) {
       //   var latitude = pos.coords.latitude; // 37.321007699999996
       //   var longitude = pos.coords.longitude; // 127.12466429999999
@@ -118,7 +120,7 @@
         infowindowList.push(infowindow);
       }
 
-      for (var i = 0, ii = markerList.length; i < ii; i++) {
+      for (let i = 0, ii = markerList.length; i < ii; i++) {
         // console.log(markerList[i]);
         naver.maps.Event.addListener(map, "click", ClickMap(i));
         naver.maps.Event.addListener(
@@ -130,56 +132,76 @@
             markerList[i].position._lng
           )
         );
-
         // showRoadMap(markerList[i].position._lat, markerList[i].position._lng);
       }
 
       function ClickMap(i) {
         return function () {
-          var infowindow = infowindowList[i];
+          const infowindow = infowindowList[i];
           infowindow.close();
+          if (!roadviewContainer.classList.contains("hidden")) {
+            roadviewContainer.classList.add("hidden");
+            roadviewContainer.style.display = "none";
+            setTimeout(() => {
+              location.reload();
+            }, 10);
+          }
         };
       }
 
       function getClickHandler(i, lat, lng) {
         return function () {
-          var marker = markerList[i];
-          var infowindow = infowindowList[i];
+          const marker = markerList[i];
+          const infowindow = infowindowList[i];
           if (infowindow.getMap()) {
             infowindow.close();
+            if (!roadviewContainer.classList.contains("hidden")) {
+              roadviewContainer.classList.add("hidden");
+              roadviewContainer.style.display = "none";
+              setTimeout(() => {
+                location.reload();
+              }, 10);
+            }
           } else {
             infowindow.open(map, marker);
+            showRoadMap(lat, lng);
           }
-
-          showRoadMap(lat, lng);
         };
       }
 
       function showRoadMap(lat, lng) {
         const infoWindowBtn = document.querySelector(".infowindow_roadmap");
-        const roadviewContainer = document.getElementById("roadview"); //로드뷰를 표시할 div
-        console.log(lat, lng);
+        // console.log(lat, lng);
 
         if (infoWindowBtn) {
-          infoWindowBtn.addEventListener("click", () => {
-            // roadmap
-            roadviewContainer.classList.toggle("hidden");
-
-            if (roadviewContainer.classList.contains("hidden")) {
-              roadviewContainer.style.display = "none";
-            } else {
-              roadviewContainer.style.display = "block";
-              var roadview = new kakao.maps.Roadview(roadviewContainer);
-              var roadviewClient = new kakao.maps.RoadviewClient();
-              var position = new kakao.maps.LatLng(lat, lng);
-
-              roadviewClient.getNearestPanoId(position, 50, function (panoId) {
-                roadview.setPanoId(panoId, position);
-              });
-            }
-          });
+          infoWindowBtn.addEventListener(
+            "click",
+            handleRoadView.bind(event, lat, lng)
+          );
         }
       }
+
+      const handleRoadView = function (lat, lng) {
+        // roadmap
+        roadviewContainer.classList.toggle("hidden");
+        console.log(lat, lng);
+        if (roadviewContainer.classList.contains("hidden")) {
+          const infoWindowBtn = document.querySelector(".infowindow_roadmap");
+          roadviewContainer.style.display = "none";
+          setTimeout(() => {
+            location.reload();
+          }, 10);
+        } else {
+          roadviewContainer.style.display = "block";
+          var roadview = new kakao.maps.Roadview(roadviewContainer);
+          var roadviewClient = new kakao.maps.RoadviewClient();
+          var position = new kakao.maps.LatLng(lat, lng);
+
+          roadviewClient.getNearestPanoId(position, 50, function (panoId) {
+            roadview.setPanoId(panoId, position);
+          });
+        }
+      };
 
       // $("#current").on("click", function (e) {
       //   const current_lat = parseFloat(x);
