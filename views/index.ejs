@@ -274,12 +274,19 @@
       }
 
       const handleMarkerClick = (placeUrl, placeName) => {
+        const search = document.querySelector("#search");
+        const existingA = search.querySelector("a");
+
+        if (existingA) {
+          existingA.remove();
+        }
+
         const a = document.createElement("a");
         a.classList.add("search__url");
         a.href = placeUrl;
         a.innerText = placeName;
 
-        const search = document.querySelector("#search");
+        // console.log(searchChilds);
         search.appendChild(a);
       };
     </script>
