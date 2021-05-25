@@ -174,13 +174,6 @@
 
       function showRoadMap(lat, lng) {
         const infoWindowBtn = document.querySelector(".infowindow_roadmap");
-        const body = document.querySelector("body");
-        const div = document.createElement("div");
-
-        div.id = "roadview";
-        div.style.width = "600px";
-        div.style.height = "400px";
-        body.appendChild(div);
 
         if (infoWindowBtn) {
           infoWindowBtn.addEventListener(
@@ -204,6 +197,14 @@
         //   roadviewContainer.style.display = "block";
 
         const infoWindowBtn = document.querySelector(".infowindow_roadmap");
+        const div = document.createElement("div");
+        const body = document.querySelector("body");
+
+        div.id = "roadview";
+        div.style.width = "600px";
+        div.style.height = "400px";
+        body.appendChild(div);
+
         const roadviewContainer = document.getElementById("roadview");
 
         var roadview = new kakao.maps.Roadview(roadviewContainer);
