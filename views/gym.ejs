@@ -33,13 +33,14 @@
 
     <div id="map" style="width: 100%; height: 100vh"></div>
 
-    <div id="roadview" class="hidden" style="width: 600px; height: 400px"></div>
+    <!-- <div id="roadview" class="hidden" style="width: 600px; height: 400px"></div> -->
 
     <script type="text/javascript" src="/data/data2.js"></script>
     <script type="text/javascript" src="/data/gym/gym1.js"></script>
     <script type="text/javascript" src="/data/gym/gym2.js"></script>
     <script type="text/javascript" src="/data/gym/gym3.js"></script>
     <script type="text/javascript" src="/data/gps.js"></script>
+
     <script>
       var mapOptions = {
         center: new naver.maps.LatLng(37.325235, 127.124603),
@@ -95,7 +96,8 @@
         markerList.push(marker);
         infowindowList.push(infowindow);
       }
-      for (var i = 0, ii = markerList.length; i < ii; i++) {
+
+      for (let i = 0, ii = markerList.length; i < ii; i++) {
         naver.maps.Event.addListener(map, "click", ClickMap(i));
         naver.maps.Event.addListener(
           markerList[i],
@@ -111,58 +113,74 @@
         return function () {
           var infowindow = infowindowList[i];
           infowindow.close();
+
+          const roadviewContainer = document.getElementById("roadview");
+          if (roadviewContainer) {
+            roadviewContainer.parentNode.removeChild(roadviewContainer);
+          }
         };
       }
+
       function getClickHandler(i, lat, lng) {
         return function () {
-          var marker = markerList[i];
-          var infowindow = infowindowList[i];
+          const marker = markerList[i];
+          const infowindow = infowindowList[i];
           if (infowindow.getMap()) {
             infowindow.close();
+            const roadviewContainer = document.getElementById("roadview");
+
+            if (roadviewContainer) {
+              roadviewContainer.parentNode.removeChild(roadviewContainer);
+            }
           } else {
             infowindow.open(map, marker);
+            showRoadMap(lat, lng);
           }
-          showRoadMap(lat, lng);
         };
       }
-
       function showRoadMap(lat, lng) {
         const infoWindowBtn = document.querySelector(".infowindow_roadmap");
-        const roadviewContainer = document.getElementById("roadview"); //로드뷰를 표시할 div
-        console.log(lat, lng);
+        const body = document.querySelector("body");
+        const div = document.createElement("div");
+
+        div.id = "roadview";
+        div.style.width = "600px";
+        div.style.height = "400px";
+        body.appendChild(div);
 
         if (infoWindowBtn) {
-          // let addClick = infoWindowBtn.addEventListener(
-          //   "click",
-          //   handleRoadView(lat, lng)
-          // );
-
-          // if (addClick) {
-          //   infoWindowBtn.removeEventListener(
-          //     "click",
-          //     handleRoadView(lat, lng)
-          //   );
-          // }
-
-          infoWindowBtn.addEventListener("click", () => {
-            // roadmap
-            roadviewContainer.classList.toggle("hidden");
-
-            if (roadviewContainer.classList.contains("hidden")) {
-              roadviewContainer.style.display = "none";
-            } else {
-              roadviewContainer.style.display = "block";
-              var roadview = new kakao.maps.Roadview(roadviewContainer);
-              var roadviewClient = new kakao.maps.RoadviewClient();
-              var position = new kakao.maps.LatLng(lat, lng);
-
-              roadviewClient.getNearestPanoId(position, 50, function (panoId) {
-                roadview.setPanoId(panoId, position);
-              });
-            }
-          });
+          infoWindowBtn.addEventListener(
+            "click",
+            handleRoadView.bind(event, lat, lng)
+          );
         }
       }
+
+      const handleRoadView = function (lat, lng) {
+        // roadmap
+        // roadviewContainer.classList.toggle("hidden");
+        // console.log(lat, lng);
+        // if (roadviewContainer.classList.contains("hidden")) {
+        //   const infoWindowBtn = document.querySelector(".infowindow_roadmap");
+        //   roadviewContainer.style.display = "none";
+        //   setTimeout(() => {
+        //     location.reload();
+        //   }, 10);
+        // } else {
+        //   roadviewContainer.style.display = "block";
+
+        const infoWindowBtn = document.querySelector(".infowindow_roadmap");
+        const roadviewContainer = document.getElementById("roadview");
+
+        var roadview = new kakao.maps.Roadview(roadviewContainer);
+        var roadviewClient = new kakao.maps.RoadviewClient();
+        var position = new kakao.maps.LatLng(lat, lng);
+
+        roadviewClient.getNearestPanoId(position, 50, function (panoId) {
+          roadview.setPanoId(panoId, position);
+        });
+        // }
+      };
 
       $("#current").on("click", function (e) {
         const current_lat = parseFloat(x);
@@ -177,6 +195,7 @@
 
       $("#search_input").on("keydown", function (e) {
         if (e.keyCode === 13) {
+          // enter
           let content = $(this).val();
           ps.keywordSearch(content, placeSearchCB);
         }
@@ -190,6 +209,7 @@
       function placeSearchCB(data, status, pagination) {
         if (status === kakao.maps.services.Status.OK) {
           let target = data[0];
+
           const lat = target.y;
           const lng = target.x;
           const latlng = new naver.maps.LatLng(lat, lng);
@@ -213,7 +233,6 @@
           }
           map.setZoom(16, false);
           map.panTo(latlng);
-          console.log(target);
         } else {
           alert("검색결과가 없습니다");
         }

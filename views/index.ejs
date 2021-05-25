@@ -29,11 +29,11 @@
       <input id="search_input" placeholder="목적지를 입력해 주세요" />
       <button id="search_button">검색</button>
     </div>
-    <!-- <button id="current">현재위치</button> -->
+    <button id="current">현재위치</button>
 
     <div id="map" style="width: 100%; height: 100vh"></div>
 
-    <div id="roadview" class="hidden" style="width: 600px; height: 400px"></div>
+    <!-- <div id="roadview" class="hidden" style="width: 600px; height: 400px"></div> -->
 
     <script type="text/javascript" src="/data/data.js"></script>
     <script type="text/javascript" src="/data/cafe/starbucks.js"></script>
@@ -49,7 +49,6 @@
       var map = new naver.maps.Map("map", mapOptions);
       var markerList = [];
       var infowindowList = [];
-      const roadviewContainer = document.getElementById("roadview");
 
       // 현재 위치
       // navigator.geolocation.getCurrentPosition(function (pos) {
@@ -104,12 +103,13 @@
         });
 
         var content = `<div class='infowindow_wrap'>
-          <div class='infowindow_name'>${target.name}</div>
-          <div class='infowindow_count'>이용중인 좌석: ${count}석 / ${total}석</div>
-          <div class='infowindow_congestion'>좌석 점유도: ${congestion}%</div>
-          <div class='infowindow_notice'>${notice}</div>
-          <button class="infowindow_roadmap">로드맵 보기</button>
-        </div>`;
+            <div class='infowindow_name'>${target.name}</div>
+            <div class='infowindow_count'>이용중인 좌석: ${count}석 / ${total}석</div>
+            <div class='infowindow_congestion'>좌석 점유도: ${congestion}%</div>
+            <div class='infowindow_notice'>${notice}</div>
+            <button class="infowindow_roadmap">로드맵 보기</button>
+          </div>`;
+
         var infowindow = new naver.maps.InfoWindow({
           content: content,
           backgroundColor: "#00ff0000",
@@ -121,7 +121,6 @@
       }
 
       for (let i = 0, ii = markerList.length; i < ii; i++) {
-        // console.log(markerList[i]);
         naver.maps.Event.addListener(map, "click", ClickMap(i));
         naver.maps.Event.addListener(
           markerList[i],
@@ -132,19 +131,16 @@
             markerList[i].position._lng
           )
         );
-        // showRoadMap(markerList[i].position._lat, markerList[i].position._lng);
       }
 
       function ClickMap(i) {
         return function () {
           const infowindow = infowindowList[i];
           infowindow.close();
-          if (!roadviewContainer.classList.contains("hidden")) {
-            roadviewContainer.classList.add("hidden");
-            roadviewContainer.style.display = "none";
-            setTimeout(() => {
-              location.reload();
-            }, 10);
+
+          const roadviewContainer = document.getElementById("roadview");
+          if (roadviewContainer) {
+            roadviewContainer.parentNode.removeChild(roadviewContainer);
           }
         };
       }
@@ -155,12 +151,19 @@
           const infowindow = infowindowList[i];
           if (infowindow.getMap()) {
             infowindow.close();
-            if (!roadviewContainer.classList.contains("hidden")) {
-              roadviewContainer.classList.add("hidden");
-              roadviewContainer.style.display = "none";
-              setTimeout(() => {
-                location.reload();
-              }, 10);
+
+            //   if (!roadviewContainer.classList.contains("hidden")) {
+            //     roadviewContainer.classList.add("hidden");
+            //     roadviewContainer.style.display = "none";
+            //     setTimeout(() => {
+            //       location.reload();
+            //     }, 10);
+            //   }
+
+            const roadviewContainer = document.getElementById("roadview");
+
+            if (roadviewContainer) {
+              roadviewContainer.parentNode.removeChild(roadviewContainer);
             }
           } else {
             infowindow.open(map, marker);
@@ -171,7 +174,13 @@
 
       function showRoadMap(lat, lng) {
         const infoWindowBtn = document.querySelector(".infowindow_roadmap");
-        // console.log(lat, lng);
+        const body = document.querySelector("body");
+        const div = document.createElement("div");
+
+        div.id = "roadview";
+        div.style.width = "600px";
+        div.style.height = "400px";
+        body.appendChild(div);
 
         if (infoWindowBtn) {
           infoWindowBtn.addEventListener(
@@ -183,33 +192,37 @@
 
       const handleRoadView = function (lat, lng) {
         // roadmap
-        roadviewContainer.classList.toggle("hidden");
-        console.log(lat, lng);
-        if (roadviewContainer.classList.contains("hidden")) {
-          const infoWindowBtn = document.querySelector(".infowindow_roadmap");
-          roadviewContainer.style.display = "none";
-          setTimeout(() => {
-            location.reload();
-          }, 10);
-        } else {
-          roadviewContainer.style.display = "block";
-          var roadview = new kakao.maps.Roadview(roadviewContainer);
-          var roadviewClient = new kakao.maps.RoadviewClient();
-          var position = new kakao.maps.LatLng(lat, lng);
+        // roadviewContainer.classList.toggle("hidden");
+        // console.log(lat, lng);
+        // if (roadviewContainer.classList.contains("hidden")) {
+        //   const infoWindowBtn = document.querySelector(".infowindow_roadmap");
+        //   roadviewContainer.style.display = "none";
+        //   setTimeout(() => {
+        //     location.reload();
+        //   }, 10);
+        // } else {
+        //   roadviewContainer.style.display = "block";
 
-          roadviewClient.getNearestPanoId(position, 50, function (panoId) {
-            roadview.setPanoId(panoId, position);
-          });
-        }
+        const infoWindowBtn = document.querySelector(".infowindow_roadmap");
+        const roadviewContainer = document.getElementById("roadview");
+
+        var roadview = new kakao.maps.Roadview(roadviewContainer);
+        var roadviewClient = new kakao.maps.RoadviewClient();
+        var position = new kakao.maps.LatLng(lat, lng);
+
+        roadviewClient.getNearestPanoId(position, 50, function (panoId) {
+          roadview.setPanoId(panoId, position);
+        });
+        // }
       };
 
-      // $("#current").on("click", function (e) {
-      //   const current_lat = parseFloat(x);
-      //   const current_lng = parseFloat(y);
-      //   const gps = new naver.maps.LatLng(current_lat, current_lng);
-      //   map.setZoom(18, false);
-      //   map.panTo(gps);
-      // });
+      $("#current").on("click", function (e) {
+        const current_lat = parseFloat(x);
+        const current_lng = parseFloat(y);
+        const gps = new naver.maps.LatLng(current_lat, current_lng);
+        map.setZoom(18, false);
+        map.panTo(gps);
+      });
 
       let ps = new kakao.maps.services.Places();
       let search_arr = [];
@@ -230,7 +243,6 @@
       function placeSearchCB(data, status, pagination) {
         if (status === kakao.maps.services.Status.OK) {
           let target = data[0];
-          // console.log(target);
 
           const lat = target.y;
           const lng = target.x;
