@@ -22,6 +22,10 @@
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=''&libraries=services"
     ></script>
+    <script
+      src="https://kit.fontawesome.com/d355f46a66.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -67,19 +71,32 @@
         }
 
         let notice = "";
+
         if (congestion >= 70) {
           notice = "혼잡할 수 있는 시설입니다.";
+          content = "<div class='marker full'></div>";
+        } else if (congestion <= 30) {
+          content = ` 
+                    <div class='marker__container'>
+                      <i class='fas fa-star'></i>
+                      <div class='marker recommend'></div>
+                    </div>
+                    `;
+        } else {
+          content = "<div class='marker'></div>";
         }
 
         let latlng = new naver.maps.LatLng(target.lat, target.lng);
+
         marker = new naver.maps.Marker({
           map: map,
           position: latlng,
           icon: {
-            content: "<div class='marker'></div>",
+            content: content,
             anchor: new naver.maps.Point(12, 12),
           },
         });
+
         var content = `<div class='infowindow_wrap'>
           <div class='infowindow_name'>${target.name}</div>
           <div class='infowindow_count'>이용중인 좌석: ${count}석 / ${total}석</div>
@@ -87,6 +104,7 @@
           <div class='infowindow_notice'>${notice}</div>
           <button class="infowindow_roadmap">로드맵 보기</button>
         </div>`;
+
         var infowindow = new naver.maps.InfoWindow({
           content: content,
           backgroundColor: "#00ff0000",
@@ -109,13 +127,16 @@
           )
         );
       }
+
       function ClickMap(i) {
         return function () {
           var infowindow = infowindowList[i];
           infowindow.close();
 
           const roadviewContainer = document.getElementById("roadview");
-          if (roadviewContainer) {
+          if (!roadviewContainer) {
+            return;
+          } else {
             roadviewContainer.parentNode.removeChild(roadviewContainer);
           }
         };
@@ -138,6 +159,7 @@
           }
         };
       }
+
       function showRoadMap(lat, lng) {
         const infoWindowBtn = document.querySelector(".infowindow_roadmap");
 
@@ -150,28 +172,28 @@
       }
 
       const handleRoadView = function (lat, lng) {
-        // roadmap
-        // roadviewContainer.classList.toggle("hidden");
-        // console.log(lat, lng);
-        // if (roadviewContainer.classList.contains("hidden")) {
-        //   const infoWindowBtn = document.querySelector(".infowindow_roadmap");
-        //   roadviewContainer.style.display = "none";
-        //   setTimeout(() => {
-        //     location.reload();
-        //   }, 10);
-        // } else {
-        //   roadviewContainer.style.display = "block";
-
         const infoWindowBtn = document.querySelector(".infowindow_roadmap");
         const div = document.createElement("div");
         const body = document.querySelector("body");
 
         div.id = "roadview";
+        div.classList.add("view");
         div.style.width = "600px";
         div.style.height = "400px";
         body.appendChild(div);
 
         const roadviewContainer = document.getElementById("roadview");
+
+        const roadviewClass = document.querySelectorAll(".view");
+        console.log(roadviewClass);
+        if (!roadviewClass) {
+          return;
+        } else {
+          if (roadviewClass.length >= 2) {
+            roadviewContainer.parentNode.removeChild(roadviewClass[1]);
+            // console.log(roadviewClass);
+          }
+        }
 
         var roadview = new kakao.maps.Roadview(roadviewContainer);
         var roadviewClient = new kakao.maps.RoadviewClient();
@@ -250,6 +272,7 @@
         const a = document.createElement("a");
         a.classList.add("search__url");
         a.href = placeUrl;
+        a.target = "_blank";
         a.innerText = placeName;
 
         // console.log(searchChilds);

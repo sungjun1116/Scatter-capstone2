@@ -37,6 +37,18 @@ body {
   outline: none;
 }
 
+.marker__container {
+  display: flex;
+}
+
+.marker__container i {
+  position: relative;
+  bottom: 16px;
+  left: 4px;
+  color: #ffe812;
+  font-size: 16px;
+}
+
 .marker {
   border: 1px solid black;
   background: green;
@@ -46,9 +58,17 @@ body {
   border-radius: 50%;
 }
 
-.myPosition {
-  background-color: blue;
+.full {
+  background: red;
 }
+
+.recommend {
+  background: green;
+}
+
+/* .myPosition {
+  background-color: blue;
+} */
 
 .infowindow_wrap {
   background: white;
