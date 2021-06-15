@@ -44,7 +44,7 @@ App이 `http://localhost:3000`에서 실행됩니다.
 * News(웹 크롤링 기술을 통한 코로나와 관련된 뉴스 제공)
 
 ### Main Menu
-<img width="600" alt="main" src="https://user-images.githubusercontent.com/59200428/101358711-95ad7480-38de-11eb-9fb6-4fce5e9b4e8a.PNG">
+<img width="600" alt="main" src="https://user-images.githubusercontent.com/62203909/122082914-5c306580-ce3b-11eb-81ed-7becfaf64a03.png">
 
 ### MAP(Cafe, restaurant, gym)
 <img width="600" alt="map" src="https://user-images.githubusercontent.com/59200428/101358719-96dea180-38de-11eb-8093-48794430ea1d.PNG">
