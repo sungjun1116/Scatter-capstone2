@@ -47,7 +47,7 @@ App이 `http://localhost:3000`에서 실행됩니다.
 <img width="600" alt="main" src="https://user-images.githubusercontent.com/62203909/122082914-5c306580-ce3b-11eb-81ed-7becfaf64a03.png">
 
 ### MAP(Cafe, restaurant, gym)
-<img width="600" alt="map" src="https://user-images.githubusercontent.com/59200428/101358719-96dea180-38de-11eb-8093-48794430ea1d.PNG">
+<img width="600" alt="map" src="https://user-images.githubusercontent.com/62203909/122083370-c77a3780-ce3b-11eb-9917-33f8df2c90fb.png">
 
 ### Admin
 <img width="600" alt="admin" src="https://user-images.githubusercontent.com/59200428/101358714-96460b00-38de-11eb-94a1-d2bb83b19dd8.PNG">
