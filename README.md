@@ -4,7 +4,9 @@
 
 ## Members
 * [황성준](https://github.com/sungjun1116) : 백엔드, 지도서비스 개발
+* 김우진 : 프론트엔드 개발
 * [이형주](https://github.com/gudwnsepdy) : 클라이언트(안드로이드) 개발
+* 김동수 : 하드웨어, 임베디드 프로그래밍
 
 > 이 프로젝트는 [Node.js-express 프레임워크](http://expressjs.com/)로 만들어졌습니다.
 
@@ -55,7 +57,7 @@ App이 `http://localhost:3000`에서 실행됩니다.
 ### News
 <img width="400" alt="news" src="https://user-images.githubusercontent.com/59200428/101358709-9514de00-38de-11eb-82da-fc34e86f707b.PNG">
 
-**[시연 영상](https://youtu.be/cZTpfFr4Uck)**
+**[시연 영상 및 보고서](https://drive.google.com/drive/folders/1lCY-HOhT-aDX9mOZSZq7Hr_VBRycGWa9?usp=sharing)**
 
 
 ## License
